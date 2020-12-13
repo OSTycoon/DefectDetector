@@ -1,0 +1,11 @@
+[Unit]
+Description=Defect Detector Server
+After=syslog.target
+
+[Service]
+SyslogIdentifier=hangman
+ExecStart=/opt/defect-detector/defect-detector.jar
+User=root
+Type=simple
+[Install]
+WantedBy=multi-user.target

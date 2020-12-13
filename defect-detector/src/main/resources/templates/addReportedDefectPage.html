@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>New Reported Defect</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/selectize.css">
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/selectize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h2>Add New Reported Defect <a href="/">HOME</a></h2>
+            <h4>This page should be used to add a new instance of a defect. To add a new TYPE of defect, <a href="/addDefect">click here!</a></h4>
+        </header>
+        <div id="reportedDefectBox" class="row form-group">
+            <div class="col-sm-2">
+                <label for="milepost" class="control-label">Milepost</label>
+                <input type="text" id="milepost" class="form-control" placeholder="Milepost" />
+            </div>
+            <div class="col-sm-4">
+                <label for="dateReported" class="control-label">Date Reported</label>
+                <input type="date" id="dateReported" class="form-control" placeholder="mm/dd/yyyy"/>
+            </div>
+            <div class="col-sm-6">
+                <label for="description" class="control-label">Description</label>
+                <input type="text" id="description" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <select class="col-sm-12" id="defectType">
+                <option selected value="">None</option>
+                <option th:each="defect: ${defects}" th:value="${defect.id}" th:text="${defect.description}"></option>
+            </select>
+        </div>
+        <div class="row">
+            <button class="btn btn-success btn-block" id="addNewReportedDefect">Submit!</button>
+        </div>
+    </div>
+</body>
+
+</html>

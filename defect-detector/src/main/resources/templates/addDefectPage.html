@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>New Defect Type</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h2>Add New Reported Defect <a href="/">HOME</a></h2>
+            <h4>This page should be used to add a new type of a defect. To add a new INSTANCE of a defect, <a href="/addReportedDefect">click here!</a></h4>
+        </header>
+        <div id="reportedDefectBox" class="row form-group">
+            <div class="col-sm-2">
+                <label for="cfr" class="control-label">CRF</label>
+                <input type="text" id="cfr" class="form-control" placeholder="CRF" />
+            </div>
+            <div class="col-sm-2">
+                <label for="defectCode" class="control-label">Defect Code</label>
+                <input type="text" id="defectCode" class="form-control"placeholder="Defect Code"  />
+            </div>
+            <div class="col-sm-2">
+                <label for="subrule" class="control-label">Subrule</label>
+                <input type="text" id="subrule" class="form-control"placeholder="Subrule"  />
+            </div>
+            <div class="col-sm-4">
+                <label for="description" class="control-label">Description</label>
+                <input type="text" id="description" class="form-control" placeholder="Description" />
+            </div>
+            <div class="col-sm-2">
+                <label for="effortToRepair" class="control-label">Repair Effort</label>
+                <select class="form-control col-sm-12" id="effortToRepair">
+                    <option selected value="MARGINAL">MARGINAL</option>
+                    <option value="MINIMAL">MINIMAL</option>
+                    <option value="MODERATE">MODERATE</option>
+                    <option value="SIGNIFICANT">SIGNIFICANT</option>
+                    <option value="MAJOR">MAJOR</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-success btn-block" id="addNewDefect">Submit!</button>
+        </div>
+    </div>
+</body>
+
+</html>

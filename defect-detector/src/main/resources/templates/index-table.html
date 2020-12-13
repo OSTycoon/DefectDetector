@@ -1,0 +1,45 @@
+<div>Number of Defects: <span th:text="${#lists.size(reportedDefects)}"></span></div>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <th>#</th>
+            <th>Milepost</th>
+            <th>Description</th>
+            <th class="mobHide">FRA</th>
+            <th class="mobHide">Date Reported</th>
+            <th class="mobHide">Date Repaired</th>
+            <th class="noPrint" sec:authorize="hasAnyAuthority('ADMIN','USER')">Manage</th>
+        </tr>
+        <th:block th:each="reportedDefect: ${reportedDefects}">
+            <tr>
+                <td th:text="${reportedDefect.id}" />
+                <td th:text="${reportedDefect.milepost}" />
+                <td>
+                    <span th:text="${reportedDefect?.defect?.description}"></span>
+                    <hr>
+                    <span th:text="${reportedDefect.description}"></span>
+                </td>
+                <td class="mobHide" th:data-effort="${reportedDefect?.defect?.effortToRepair}">
+                    <span th:text="${reportedDefect?.defect?.cfr}"></span><br />
+                    <span th:text="${reportedDefect?.defect?.defectCode}"></span><br />
+                    <span th:text="${reportedDefect?.defect?.subrule}"></span>
+                </td>
+                <td class="mobHide" th:text="${reportedDefect.dateReported}" />
+                <td class="mobHide" th:text="${reportedDefect?.dateRepaired}" />
+                <td class="noPrint manage-col" sec:authorize="hasAnyAuthority('ADMIN','USER')">
+                    <button sec:authorize="hasAuthority('ADMIN')" class="btn btn-primary btn-block" onclick="toggleManage()">Manage</button>
+                    <button sec:authorize="hasAuthority('USER')" class="btn btn-primary btn-block" th:onclick="|markDefectDone(${reportedDefect.id})|">Mark Complete</button>
+                </td>
+            </tr>
+            <tr sec:authorize="hasAuthority('ADMIN')" colspan=7 class="manage-row">
+                <td class="noPrint" sec:authorize="hasAnyAuthority('ADMIN','USER')" colspan=7>
+                    <div class="row" style="width: 100%; margin: auto;">
+                        <button class="btn btn-primary btn-block col-sm-4" th:onclick="|markDefectDone(${reportedDefect.id})|">Mark Complete</button>
+                        <a class="col-sm-4" th:href="@{'/editDefect/' + ${reportedDefect.id}}"><button class="btn btn-warning btn-block">Edit</button></a>
+                        <button class="btn btn-danger btn-block col-sm-4" th:onclick="|deleteReportedDefect(${reportedDefect.id})|">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </th:block>
+    </tbody>
+</table>

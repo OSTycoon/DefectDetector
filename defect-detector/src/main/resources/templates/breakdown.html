@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>CACV Defect Detector</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="/css/selectize.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script sec:authorize="hasAuthority('ADMIN')" src="/js/admin.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/selectize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h2>CACV Defect Detector Breakdown<a href="/">HOME</a> <a href="/logout">LOGOUT</a></h2>
+            <h3>Centralized track and equipment defect reparation tracking software</h3>
+        </header>
+    </div>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Defect Type</th>
+                <th>Count</th>
+            </tr>
+            <tr th:each="entry: ${defectCount}">
+                <td th:text="${entry.key}" />
+                <td th:text="${entry.value}" />
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Milepost</th>
+                <th>Count</th>
+            </tr>
+            <tr th:each="entry: ${milepostCount}">
+                <td><span th:text="${entry.key}" /> to <span th:text="${entry.key + 1}" /></td>
+                <td th:text="${entry.value}" />
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

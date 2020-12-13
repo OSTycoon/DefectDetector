@@ -1,0 +1,42 @@
+form-control container-fluid #index-table{
+    padding: 3px;
+}
+
+.btn {
+    padding: 3px !important;
+}
+.bg-effort-1
+{
+    background-color: green;
+}
+.bg-effort-2
+{
+    background-color: greenyellow;
+}
+.bg-effort-3
+{
+    background-color: yellow;
+}
+.bg-effort-4
+{
+    background-color: orange;
+}
+.bg-effort-5
+{
+    background-color: red;
+}
+
+@media only screen and (max-width: 900px) {
+    .mobHide{
+        display: none;
+    }
+}
+@media print {
+    .noPrint{
+        display: none;
+    }
+ }
+
+ hr {
+     margin: 0px;
+ }
